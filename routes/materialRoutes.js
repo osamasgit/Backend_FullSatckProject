@@ -1,19 +1,12 @@
 const express = require('express')
 const router = express.Router()
+const Material = require('../models/Material')
+const crud = require('../controllers/crudGenericController')
 
-const {
-  createMaterial,
-  getMaterials,
-  updateMaterial,
-  deleteMaterial
-} = require('../controllers/materialController')
-
-router.post('/', createMaterial)
-
-router.get('/', getMaterials)
-
-router.put('/:id', updateMaterial)
-
-router.delete('/:id', deleteMaterial)
+router.post('/', crud.create(Material))
+router.get('/', crud.getAll(Material))
+router.get('/:id', crud.getOne(Material))
+router.put('/:id', crud.update(Material))
+router.delete('/:id', crud.remove(Material))
 
 module.exports = router

@@ -2,6 +2,8 @@ const express = require('express')
 const dotenv = require('dotenv')
 const {dbConnection} = require('./config/db.js')
 const materialRoutes = require('./routes/materialRoutes')
+const productRoutes = require('./routes/productRoutes')
+const partRoutes = require('./routes/partRoutes')
 
 dotenv.config()
 
@@ -12,6 +14,8 @@ dbConnection()
 app.use(express.json())
 
 app.use('/api/materials', materialRoutes)
+app.use('/api/products', productRoutes)
+app.use('/api/parts', partRoutes)
 
 app.get('/', (req, res) => {
   res.send('API working correctly')
