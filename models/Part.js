@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const partEventSchema = new mongoose.Schema({
+const partSchema = new mongoose.Schema({
   name: { type: String, required: true },
 
   products: [
@@ -11,4 +11,4 @@ const partEventSchema = new mongoose.Schema({
   ]
 }, { timestamps: true })
 
-module.exports = mongoose.model('PartEvent', partEventSchema)
+module.exports = mongoose.model('Part', partSchema)

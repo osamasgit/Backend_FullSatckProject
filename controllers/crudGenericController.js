@@ -7,20 +7,35 @@ exports.create = (Model) => async (req, res) => {
   }
 }
 
-exports.getAll = (Model, populateOptions = '') => async (req, res) => {
+exports.getAll = (Model) => async (req, res) => {
   try {
-    const docs = await Model.find().populate(populateOptions)
+    let query = Model.find()
+
+    if (Model.modelName === 'Part') {
+      query = query.populate({
+        path: 'products.product',
+        populate: {
+          path: 'materials.material',
+          model: 'Material'
+        }
+      })
+    } else if (Model.modelName === 'Product') {
+      query = query.populate('materials.material')
+    }
+
+    const docs = await query
     res.json(docs)
   } catch (err) {
     res.status(500).json({ message: 'Error getting data' })
   }
 }
 
+
 exports.getOne = (Model) => async (req, res) => {
   try {
     let query = Model.findById(req.params.id)
 
-    if (Model.modelName === 'PartEvent') {
+    if (Model.modelName === 'Part') {
       query = query.populate({
         path: 'products.product',
         populate: {
