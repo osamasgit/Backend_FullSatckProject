@@ -30,7 +30,6 @@ exports.getAll = (Model) => async (req, res) => {
   }
 }
 
-
 exports.getOne = (Model) => async (req, res) => {
   try {
     let query = Model.findById(req.params.id)
@@ -55,6 +54,18 @@ exports.getOne = (Model) => async (req, res) => {
     res.json(item)
   } catch (error) {
     res.status(500).json({ message: 'Error getting it', error })
+  }
+}
+
+exports.searchByName = (Model) => async (req, res) => {
+  try {
+    const query = req.query.query || ""
+    const results = await Model.find({
+      name: { $regex: query, $options: 'i' }
+    })
+    res.json(results)
+  } catch (error) {
+    res.status(500).json({ message: 'Error searching by name', error })
   }
 }
 

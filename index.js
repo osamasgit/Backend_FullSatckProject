@@ -5,13 +5,17 @@ const materialRoutes = require('./routes/materialRoutes')
 const productRoutes = require('./routes/productRoutes')
 const partRoutes = require('./routes/partRoutes')
 const calculateMaterialsRoutes = require('./routes/calculateMaterialsRoutes')
-
+const cors = require('cors')
 
 dotenv.config()
 
 const app = express()
 const PORT = process.env.PORT || 3000
 dbConnection()
+
+app.use(cors({
+  origin: 'http://localhost:5173'
+}))
 
 app.use(express.json())
 

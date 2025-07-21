@@ -5,6 +5,7 @@ const crud = require('../controllers/crudGenericController')
 
 router.post('/', crud.create(Product))
 router.get('/', crud.getAll(Product))
+router.get('/search', crud.searchByName(Product))
 router.get('/:id', crud.getOne(Product))
 router.put('/:id', crud.update(Product))
 router.delete('/:id', crud.remove(Product))
