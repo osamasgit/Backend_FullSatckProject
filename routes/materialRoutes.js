@@ -2,6 +2,9 @@ const express = require('express')
 const router = express.Router()
 const Material = require('../models/Material')
 const crud = require('../controllers/crudGenericController')
+const materialController = require('../controllers/materialController')
+
+router.post('/calculate', materialController.calculateMaterialsFromProducts)
 
 router.post('/', crud.create(Material))
 router.get('/', crud.getAll(Material))

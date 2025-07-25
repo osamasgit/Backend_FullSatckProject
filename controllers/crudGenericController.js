@@ -3,8 +3,10 @@ exports.create = (Model) => async (req, res) => {
     const doc = await Model.create(req.body)
     res.status(201).json(doc)
   } catch (err) {
-    res.status(400).json({ message: 'Error creating', error: err.message })
-  }
+  console.error('Error creating documents:', err)
+  console.error('Reciving data:', req.body)
+  res.status(400).json({ message: 'Error creating', error: err.message })
+  } 
 }
 
 exports.getAll = (Model) => async (req, res) => {

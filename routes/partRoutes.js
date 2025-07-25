@@ -14,4 +14,3 @@ router.delete('/:id', crud.remove(Part))
 
 
 module.exports = router
-
