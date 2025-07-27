@@ -19,7 +19,7 @@ dbConnection()
 app.use(express.json())
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'https://almacenesca.netlify.app/',
   credentials: true
 }))
 
