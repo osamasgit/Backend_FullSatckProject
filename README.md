@@ -52,7 +52,7 @@ Este backend expone endpoints organizados en rutas que permiten:
 📦 Cálculo de materiales basado en reglas y condiciones (invitados, categoría del evento, etc.)
 
 ## 🧱 Arquitectura del proyecto
-
+```text
 ├── config/            # Configuración de base de datos y entorno
 ├── controllers/       # Lógica de negocio por entidad
 ├── middlewares/       # Validaciones, autenticación, manejo de errores
@@ -60,7 +60,7 @@ Este backend expone endpoints organizados en rutas que permiten:
 ├── routes/            # Rutas agrupadas por funcionalidad
 ├── index.js           # Punto de entrada del servidor
 ├── package.json       # Gestión de dependencias y scripts
-
+```
 Este diseño modular permite mantener el código organizado y escalable.
 
 ## 👨‍💻 Autor
