@@ -1,4 +1,4 @@
-# Backend - FullStack
+# Backend - ALMACEN ESCA FULLSTACK
 
 Este es el backend de una aplicación fullstack desarrollada para organizar eventos — como bodas, comuniones o cumpleaños — calculando automáticamente la cantidad de material necesario en función de parámetros como número de invitados, tipo de evento y servicios requeridos.
 
