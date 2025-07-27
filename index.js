@@ -19,7 +19,7 @@ dbConnection()
 app.use(express.json())
 
 app.use(cors({
-  origin: 'https://almacenesca.netlify.app/',
+  origin: 'https://almacenesca.netlify.app',
   credentials: true
 }))
 
